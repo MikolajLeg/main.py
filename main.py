@@ -1,4 +1,6 @@
 print("Paweł zbir")
+
+
 def read_file(filepath):
     with open(filepath, "r") as file:
         data = dict()
@@ -15,11 +17,11 @@ def read_file(filepath):
         for line in lines:
             # zamienia przecinki wewnątrz cen na kropki
             dotcomma = False
-            for i in range(0,len(line)):
-                if line[i] == ('"') :
+            for i in range(0, len(line)):
+                if line[i] == '"':
                     dotcomma = not dotcomma
-                if line[i] == "," :
-                    if dotcomma == True :
+                if line[i] == ",":
+                    if dotcomma == True:
                         line = line[:i] + '.' + line[i+1:]
 
             line = line.rstrip("\n")

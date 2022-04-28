@@ -1,4 +1,6 @@
 print('nothing')
+
+
 def read_file(filepath):
     with open(filepath, "r") as file:
         data = dict()
@@ -15,11 +17,11 @@ def read_file(filepath):
         for line in lines:
             # zamienia przecinki wewnątrz cen na kropki
             dotcomma = False
-            for i in range(0,len(line)):
-                if line[i] == ('"') :
+            for i in range(0, len(line)):
+                if line[i] == '"':
                     dotcomma = not dotcomma
-                if line[i] == "," :
-                    if dotcomma == True :
+                if line[i] == ",":
+                    if dotcomma == True:
                         line = line[:i] + '.' + line[i+1:]
 
             line = line.rstrip("\n")
@@ -29,8 +31,7 @@ def read_file(filepath):
             line = line.split(',')
             name = line[0]
             name = name.split()
-            name =name[0]
-
+            name = name[0]
 
             price = list()
             # upakowuje kolejne ceny w wybranej linii(dla danego państwa) do listy
@@ -42,7 +43,8 @@ def read_file(filepath):
              # print(name)
              # print(prices)
 
-            # ceny enrgii dla danego państwa przyporządkowuje odpowiednim data i wkłada do słownika z nazwą państwa jako kluczem
+            # ceny enrgii dla danego państwa przyporządkowuje odpowiednim data i wkłada do słownika z nazwą
+            # państwa jako kluczem
             count = 1
             data[name] = dict()
             for p in price:
@@ -79,7 +81,7 @@ class Kraj:
         atrybuty = {k.split("__")[-1]: v for k, v in self.__dict__.items()}
         return f"{nazwa}: {atrybuty} "
 
-print(" czy to działa? ")
+
 if __name__ == '__main__':
     dane = read_file('Electricity prices for household consumers - bi-annual data (from 2007 onwards) [NRG_PC_204].csv')
     print(dane)
@@ -87,16 +89,14 @@ if __name__ == '__main__':
     Belgium = Kraj("Belgium", dane)
     print(Belgium)
 
-    Czechia = Kraj("Czechia",dane)
+    Czechia = Kraj("Czechia", dane)
     print(Czechia)
 
-    Germany =Kraj("Germany",dane)
+    Germany = Kraj("Germany", dane)
     print(Germany)
 
-    Ireland = Kraj("Ireland",dane)
+    Ireland = Kraj("Ireland", dane)
     print(Ireland)
 
-    Spain = Kraj("Spain",dane)
+    Spain = Kraj("Spain", dane)
     print(Spain)
-
-

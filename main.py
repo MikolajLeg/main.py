@@ -103,3 +103,6 @@ if __name__ == '__main__':
 
     kos = Kraj("Kosovo", dane)
     print(kos)
+
+    Bosnia = Kraj("Bosnia", dane)
+    print(Bosnia)

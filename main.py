@@ -1,4 +1,3 @@
-print('nothing')
 
 
 def read_file(filepath):
@@ -21,7 +20,7 @@ def read_file(filepath):
                 if line[i] == '"':
                     dotcomma = not dotcomma
                 if line[i] == ",":
-                    if dotcomma == True:
+                    if dotcomma:
                         line = line[:i] + '.' + line[i+1:]
 
             line = line.rstrip("\n")
@@ -38,10 +37,10 @@ def read_file(filepath):
             for i in range(1, len(line)):
                 price.append(line[i])
 
-             # prices = " ".join(price)
-             # prices.strip('" ')
-             # print(name)
-             # print(prices)
+            # prices = " ".join(price)
+            # prices.strip('" ')
+            # print(name)
+            # print(prices)
 
             # ceny enrgii dla danego państwa przyporządkowuje odpowiednim data i wkłada do słownika z nazwą
             # państwa jako kluczem

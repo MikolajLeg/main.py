@@ -101,5 +101,10 @@ if __name__ == '__main__':
     Spain = Kraj("Spain", dane)
     print(Spain)
 
-    kos = Kraj("Kosovo", dane)
-    print(kos)
+    Kosovo = Kraj("Kosovo", dane)
+    print(Kosovo)
+
+    Bosnia = Kraj("Bosnia", dane)
+    print(Bosnia)
+
+

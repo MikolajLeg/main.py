@@ -80,6 +80,7 @@ class Kraj:
         atrybuty = {k.split("__")[-1]: v for k, v in self.__dict__.items()}
         return f"{nazwa}: {atrybuty} "
 
+
 if __name__ == '__main__':
     dane = read_file(
         'Electricity prices for household consumers - bi-annual data (from 2007 onwards) [NRG_PC_204].csv')
@@ -100,5 +101,5 @@ if __name__ == '__main__':
     Spain = Kraj("Spain", dane)
     print(Spain)
 
-    kos = Kraj("Kosovo",dane)
+    kos = Kraj("Kosovo", dane)
     print(kos)

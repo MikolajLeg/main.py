@@ -1,4 +1,5 @@
 
+#from matplotlib import pyplot as plt
 
 def read_file(filepath):
     with open(filepath, "r") as file:
@@ -11,7 +12,7 @@ def read_file(filepath):
         # rozdziela linikje na poszczególne daty
         dates = dates.split(",")
 
-        # bierze linkijki z danymi dla państw Unii
+        # bierze linijki z danymi dla państw Unii
         lines = alllines[4:]
         for line in lines:
             # zamienia przecinki wewnątrz cen na kropki
@@ -72,13 +73,25 @@ class Kraj:
                 for date, price in item.items():
                     self.__ceny[date] = price
 
-    def wykres(self):
-        pass
+    def get_dates_and_cost(self):
+        return self.__ceny
 
     def __repr__(self):
         nazwa = self.__class__.__name__
         atrybuty = {k.split("__")[-1]: v for k, v in self.__dict__.items()}
         return f"{nazwa}: {atrybuty} "
+
+
+    # class Rysuj:
+    #
+    #     def __init__(self):
+    #         pass
+    #
+    #     def wykres(self,Kraje,start_date,end_date):
+    #         dates = list()
+    #         countries = list()
+    #         for kraj in Kraje:
+    #             dates = kraj.
 
 
 if __name__ == '__main__':
@@ -88,6 +101,10 @@ if __name__ == '__main__':
 
     Belgium = Kraj("Belgium", dane)
     print(Belgium)
+
+    proba = Belgium.get_dates_and_cost()
+    print("test")
+    print(proba)
 
     Czechia = Kraj("Czechia", dane)
     print(Czechia)
